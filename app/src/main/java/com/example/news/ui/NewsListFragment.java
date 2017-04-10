@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.adapter.NewsListAdapter;
 import com.example.api.ApiConstants;
 import com.example.common.base.BaseFragment;
 import com.example.news.model.NewsListModel;
@@ -33,6 +34,7 @@ public class NewsListFragment extends BaseFragment<NewsPresenter, NewsListModel>
     @BindView(R.id.refresh_layout)
     SwipeRefreshLayout refreshLayout;
     private LinearLayoutManager mLayoutManager;
+    private NewsListAdapter adapter;
 
     private int mType = ApiConstants.TOP;
 
@@ -79,6 +81,8 @@ public class NewsListFragment extends BaseFragment<NewsPresenter, NewsListModel>
         recycleView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getActivity());
         recycleView.setItemAnimator(new DefaultItemAnimator());
+        adapter = new NewsListAdapter(getActivity());
+        recycleView.setAdapter(adapter);
 
     }
 
