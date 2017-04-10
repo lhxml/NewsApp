@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+
+    defaultConfig {
+        applicationId "com.example.rxjavademo"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+    }
+    dexOptions {
+        preDexLibraries false
+        javaMaxHeapSize "4g"
+        incremental true
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // productFlavors 定义了一个应用的自定义构建版本
+    //一个单一的项目可以同时定义多个不同的 flavor 来改变应用的输出。
+    // productFlavors 这个概念是为了解决不同的版本之间的差异非常小的情况，通常用于区分同一个应用的不同渠道/客户等，可包含少量业务功能差别。
+    // productFlavors 中的 flavor 不能跟 buildType 中的一样,否则会报: "ProductFlavor names cannot collide with BuildType names"
+    productFlavors {
+
+        //默认版本,不设置 applicationId ,继承 defaultConfig 中的配置
+        flavors_default {
+        }
+
+        //开发版本, applicationId 替换为 com.littlejie.multichannel.dev
+        flavors_dev {
+            applicationId "com.littlejie.multichannel.dev"
+        }
+
+        //发布版本, applicationId 替换为 com.littlejie.multichannel.release
+        flavors_release {
+            applicationId "com.littlejie.multichannel.release"
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':common')
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    compile "com.google.guava:guava:$rootProject.guavaVersion"
+    compile "com.android.support.constraint:constraint-layout:$rootProject.constraintlayoutVersion"
+    compile "com.android.support:multidex:$rootProject.multidexVersion"
+    compile "de.hdodenhof:circleimageview:$rootProject.circleImageViewVersion"
+}
