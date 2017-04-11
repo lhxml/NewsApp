@@ -31,6 +31,15 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.MyView
 
     }
 
+    public void setNewsList(List<News> newsList){
+        if(newsList!=null){
+            this.newsList = newsList;
+        }else{
+            this.newsList = new ArrayList<>();
+        }
+        this.notifyDataSetChanged();
+    }
+
 
 
     @Override

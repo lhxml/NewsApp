@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.bean.News;
+import com.example.common.base.BaseResponse;
 
 import java.util.List;
 
@@ -16,9 +17,9 @@ import rx.Observable;
 public interface NewsService {
 
     @GET("/news/get-news")
-    Observable<List<News>> getNewsListData(@Query("tableNum") int tableNum,
-                                           @Query("page") int page,
-                                           @Query("pagesize") int pagesize,
-                                           @Query("callback") String callback,
-                                           @Query("justList") int justList);
+    Observable<BaseResponse<List<News>>> getNewsListData(@Query("tableNum") int tableNum,
+                                               @Query("page") int page,
+                                               @Query("pagesize") int pagesize,
+                                               @Query("callback") String callback,
+                                               @Query("justList") int justList);
 }

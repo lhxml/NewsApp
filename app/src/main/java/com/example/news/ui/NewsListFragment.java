@@ -6,27 +6,26 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.example.adapter.NewsListAdapter;
 import com.example.api.ApiConstants;
+import com.example.bean.News;
 import com.example.common.base.BaseFragment;
+import com.example.common.utils.LogUtils;
+import com.example.news.contract.NewsContract;
 import com.example.news.model.NewsListModel;
 import com.example.news.presenter.NewsPresenter;
-import com.example.news.view.NewsListView;
 import com.example.ui.R;
 
+import java.util.List;
+
 import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 /**
  * Created by lxl on 2017/4/10.
  */
 
-public class NewsListFragment extends BaseFragment<NewsPresenter, NewsListModel> implements NewsListView,SwipeRefreshLayout.OnRefreshListener{
+public class NewsListFragment extends BaseFragment<NewsPresenter, NewsListModel> implements NewsContract.View,SwipeRefreshLayout.OnRefreshListener{
 
 
     @BindView(R.id.recycle_view)
@@ -37,6 +36,10 @@ public class NewsListFragment extends BaseFragment<NewsPresenter, NewsListModel>
     private NewsListAdapter adapter;
 
     private int mType = ApiConstants.TOP;
+    private int page = 1;
+
+    private static final String TAG = "NewsListFragment";
+
 
     public static NewsListFragment getInstance(int type) {
         Bundle args = new Bundle();
@@ -64,7 +67,7 @@ public class NewsListFragment extends BaseFragment<NewsPresenter, NewsListModel>
 
     @Override
     public void showErr(String err) {
-
+        LogUtils.logd(TAG,err);
     }
 
     @Override
@@ -83,11 +86,17 @@ public class NewsListFragment extends BaseFragment<NewsPresenter, NewsListModel>
         recycleView.setItemAnimator(new DefaultItemAnimator());
         adapter = new NewsListAdapter(getActivity());
         recycleView.setAdapter(adapter);
-
+        onRefresh();
     }
 
     @Override
     public void onRefresh() {
+        mPresenter.getNewsListData(mType,page,ApiConstants.PAGE_SIZE,"0",1);
+    }
 
+
+    @Override
+    public void returnNewsListData(List<News> newsList) {
+        adapter.setNewsList(newsList);
     }
 }

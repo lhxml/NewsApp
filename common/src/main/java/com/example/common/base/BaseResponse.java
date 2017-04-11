@@ -1,10 +1,10 @@
-package com.example.base;
+package com.example.common.base;
 
 /**
  * Created by lxl on 2017/4/7.
  */
 
-public class Response<T>{
+public class BaseResponse<T>{
 
     private int status;
     private String error;

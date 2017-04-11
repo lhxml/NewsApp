@@ -18,6 +18,8 @@ public class ApiConstants {
     public static final int MILITARY = 3;
     public static final int CARS = 4;
 
+    public static final int PAGE_SIZE = 15;
+
 
 
 }
