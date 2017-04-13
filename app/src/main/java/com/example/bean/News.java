@@ -146,4 +146,20 @@ public class News implements Parcelable {
             return new News[size];
         }
     };
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "news_id='" + news_id + '\'' +
+                ", title='" + title + '\'' +
+                ", top_image='" + top_image + '\'' +
+                ", text_image0='" + text_image0 + '\'' +
+                ", text_image1='" + text_image1 + '\'' +
+                ", source='" + source + '\'' +
+                ", content='" + content + '\'' +
+                ", digest='" + digest + '\'' +
+                ", reply_count='" + reply_count + '\'' +
+                ", edit_time='" + edit_time + '\'' +
+                '}';
+    }
 }

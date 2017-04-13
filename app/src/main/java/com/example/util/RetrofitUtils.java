@@ -2,6 +2,7 @@ package com.example.util;
 
 import com.example.ui.BuildConfig;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
+import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.IOException;
@@ -49,7 +50,7 @@ public class RetrofitUtils {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(client)
                 .build();

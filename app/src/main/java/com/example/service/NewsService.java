@@ -16,7 +16,7 @@ import rx.Observable;
 
 public interface NewsService {
 
-    @GET("/news/get-news")
+    @GET("news/get-news")
     Observable<BaseResponse<List<News>>> getNewsListData(@Query("tableNum") int tableNum,
                                                @Query("page") int page,
                                                @Query("pagesize") int pagesize,

@@ -38,5 +38,6 @@ ext {
     multidexVersion = '1.0.1'
     constraintlayoutVersion = '1.0.1'
     glideVersion = '3.6.1'
+    butterknifeVersion = '8.5.1'
 }
 

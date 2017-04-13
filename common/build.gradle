@@ -28,15 +28,18 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.2.0'
     testCompile 'junit:junit:4.12'
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.2.0'
     compile 'io.reactivex:rxjava:1.0.1'
     compile 'io.reactivex:rxandroid:1.0.1'
     compile 'com.jakewharton:butterknife:8.5.1'
-    compile 'com.orhanobut:logger:1.13'//打印日志
+    compile 'com.orhanobut:logger:1.13'
+    //打印日志
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     compile 'com.android.support:design:25.2.0'
     compile 'com.facebook.stetho:stetho:1.4.2'
     compile 'com.facebook.stetho:stetho-okhttp3:1.4.2'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+
 }

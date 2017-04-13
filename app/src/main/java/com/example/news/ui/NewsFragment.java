@@ -1,13 +1,19 @@
 package com.example.news.ui;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.api.ApiConstants;
 import com.example.bean.News;
+
 import com.example.common.base.BaseFragment;
 import com.example.common.base.BaseView;
 import com.example.news.contract.NewsContract;
@@ -19,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * Created by lxl on 2017/3/29.
@@ -53,6 +60,8 @@ public class NewsFragment extends BaseFragment<NewsPresenter, NewsListModel> imp
         setupTabLayout(tabLayout);
 
     }
+
+
 
     public void setupViewPager(ViewPager viewpager){
         MyPagerAdapter adapter = new MyPagerAdapter(getChildFragmentManager());
