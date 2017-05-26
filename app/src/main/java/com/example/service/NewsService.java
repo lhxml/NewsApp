@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.bean.News;
+import com.example.bean.NewsDetails;
 import com.example.common.base.BaseResponse;
 
 import java.util.List;
@@ -22,4 +23,8 @@ public interface NewsService {
                                                @Query("pagesize") int pagesize,
                                                @Query("callback") String callback,
                                                @Query("justList") int justList);
+    @GET("news/single-news")
+    Observable<BaseResponse<NewsDetails>> getNewsDetailsData(@Query("news_id") int news_id,
+                                                             @Query("tableNum") int tableNum,
+                                                             @Query("callback") String callback);
 }

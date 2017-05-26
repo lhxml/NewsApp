@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/card_margin"
@@ -9,9 +10,13 @@
     android:layout_marginRight="@dimen/card_margin"
     >
     <LinearLayout
+        android:id="@+id/layout_newslist_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         android:padding="12dp">
         <ImageView
             android:id="@+id/image_news"

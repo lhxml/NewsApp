@@ -17,7 +17,7 @@ import com.example.bean.News;
 import com.example.common.base.BaseFragment;
 import com.example.common.base.BaseView;
 import com.example.news.contract.NewsContract;
-import com.example.news.model.NewsListModel;
+import com.example.news.model.NewsModel;
 import com.example.news.presenter.NewsPresenter;
 import com.example.ui.R;
 
@@ -31,7 +31,7 @@ import butterknife.ButterKnife;
  * Created by lxl on 2017/3/29.
  */
 
-public class NewsFragment extends BaseFragment<NewsPresenter, NewsListModel> implements BaseView {
+public class NewsFragment extends BaseFragment<NewsPresenter, NewsModel> implements BaseView {
 
 
     @BindView(R.id.tab_layout)
@@ -75,8 +75,8 @@ public class NewsFragment extends BaseFragment<NewsPresenter, NewsListModel> imp
     public void setupTabLayout(TabLayout tabLayout){
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newslist_top)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newslist_entertainment)));
-        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newslist_military)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newslist_cars)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newslist_military)));
         tabLayout.setupWithViewPager(viewpager);
     }
 

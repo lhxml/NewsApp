@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.common.base.BaseApplication;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,18 +13,13 @@ import java.util.List;
  * Created by lxl on 2017/3/10.
  */
 
-public class MyApplication extends Application{
-
-    private static MyApplication myApplication;
+public class MyApplication extends BaseApplication {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        myApplication = this;
+
     }
 
-    public static Context getAppContext(){
-        return myApplication;
-    }
 }
 

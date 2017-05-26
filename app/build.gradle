@@ -12,6 +12,14 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        jackOptions {
+            enabled true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     dexOptions {
         preDexLibraries false
@@ -63,6 +71,8 @@ dependencies {
     compile "com.github.bumptech.glide:glide:$rootProject.glideVersion"
     compile "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
+    compile "org.sufficientlysecure:html-textview:$rootProject.htmlTextViewVersion"
+    compile "com.afollestad.material-dialogs:core:$rootProject.materialDialogVersion"
 
 
 }

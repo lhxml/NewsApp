@@ -1,18 +1,16 @@
-package com.example.util;
+package com.example.common.utils;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.annotation.ColorRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.common.base.BaseApplication;
-import com.example.ui.R;
+import com.example.common.R;
+
 
 /**
  * Created by lxl on 2017/4/12.

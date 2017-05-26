@@ -9,8 +9,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.common.base.BaseActivity;
 import com.example.main.contract.MainContract;
@@ -130,5 +132,23 @@ public class MainActivity extends BaseActivity<MainPresenter,MainModel> implemen
         }
         currentFragment = targetFragment;
 
+    }
+    private long exitTime = 0;
+    public void doExitApp() {
+        if ((System.currentTimeMillis() - exitTime) > 2000) {
+            Toast.makeText(this, R.string.press_again_exit_app, Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
+        } else {
+            finish();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
+            mDrawerLayout.closeDrawer(Gravity.LEFT);
+        } else {
+            doExitApp();
+        }
     }
 }

@@ -50,7 +50,7 @@ public class RetrofitUtils {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create(new Gson()))
+                .addConverterFactory(ResponseConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(client)
                 .build();

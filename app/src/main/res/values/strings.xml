@@ -12,7 +12,12 @@
     <string name="newslist_joke">笑话</string>
     <string name="newslist_sports">体育</string>
     <string name="newslist_technology">科技</string>
+    <string name="newsdetails_transitionname">transition_newsdetails_img</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="name">Lauren_Liuling</string>
+    <string name="press_again_exit_app">再按一次退出程序</string>
+    <string name="material_dialog_content">Please wait...</string>
+
+
 </resources>

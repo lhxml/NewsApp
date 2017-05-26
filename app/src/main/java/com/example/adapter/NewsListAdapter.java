@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -27,7 +28,7 @@ import butterknife.BindView;
  * Created by lxl on 2017/4/10.
  */
 
-public class NewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class NewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private static final int TYPE_ITEM =0;  //普通Item View
     private static final int TYPE_FOOTER = 1;  //顶部FootView
@@ -35,6 +36,8 @@ public class NewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     private Context mContext;
     private List<News> newsList;
+
+    private OnItemClickListener mOnItemClickListener;
     public NewsListAdapter(Context mContext){
         this.mContext = mContext;
         newsList = new ArrayList<>();
@@ -87,12 +90,18 @@ public class NewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
         if(holder instanceof MyViewHolder){
             News news = newsList.get(position);
             ImageLoaderUtils.display(mContext,((MyViewHolder)holder).image_news,news.getTop_image());
             ((MyViewHolder)holder).txt_title.setText(""+news.getTitle());
             ((MyViewHolder)holder).txt_desc.setText(""+news.getDigest());
+            ((MyViewHolder)holder).layout_newslist_item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mOnItemClickListener.OnItemClick(view, ((MyViewHolder)holder).getLayoutPosition());
+                }
+            });
         }else if(holder instanceof MyFooterViewHolder){
             LoadHelper.getInstance(mContext).startLoadMore();
         }
@@ -104,16 +113,19 @@ public class NewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return newsList.size() == 0 ? 0 : newsList.size()+1;
     }
 
+
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView image_news;
         TextView txt_title;
         TextView txt_desc;
+        LinearLayout layout_newslist_item;
         public MyViewHolder(View itemView) {
             super(itemView);
             image_news = (ImageView) itemView.findViewById(R.id.image_news);
             txt_title = (TextView) itemView.findViewById(R.id.txt_title);
             txt_desc = (TextView) itemView.findViewById(R.id.txt_desc);
+            layout_newslist_item = (LinearLayout) itemView.findViewById(R.id.layout_newslist_item);
         }
     }
 
@@ -122,5 +134,13 @@ public class NewsListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         public MyFooterViewHolder(View itemView) {
             super(itemView);
         }
+    }
+
+    public interface OnItemClickListener{
+        public void OnItemClick(View view,int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mOnItemClickListener = listener;
     }
 }

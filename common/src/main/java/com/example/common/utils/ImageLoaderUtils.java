@@ -1,10 +1,10 @@
-package com.example.util;
+package com.example.common.utils;
 
 import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.example.ui.R;
+import com.example.common.R;
 
 
 /**
@@ -24,8 +24,8 @@ public class ImageLoaderUtils {
         if(imageView == null) {
             throw new IllegalArgumentException("argument error");
         }
-        Glide.with(context).load(url).placeholder(R.mipmap.ic_image_loading)
-                .error(R.mipmap.ic_image_loadfail).crossFade().into(imageView);
+        Glide.with(context).load(url).placeholder(R.drawable.ic_image_loading)
+                .error(R.drawable.ic_empty_picture).crossFade().into(imageView);
     }
 
 

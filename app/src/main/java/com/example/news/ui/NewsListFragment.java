@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.OnScrollListener;
 import android.util.Log;
+import android.view.View;
 
 import com.example.adapter.NewsListAdapter;
 import com.example.api.ApiConstants;
@@ -16,20 +17,24 @@ import com.example.bean.News;
 import com.example.common.base.BaseFragment;
 import com.example.common.utils.LogUtils;
 import com.example.news.contract.NewsContract;
+import com.example.news.contract.NewsListContract;
 import com.example.news.model.NewsListModel;
+import com.example.news.model.NewsModel;
+import com.example.news.presenter.NewsListPresenter;
 import com.example.news.presenter.NewsPresenter;
 import com.example.ui.R;
 import com.example.util.LoadHelper;
 
+import java.util.ArrayList;
 import java.util.List;
-
+import static com.google.common.base.Preconditions.checkNotNull;
 import butterknife.BindView;
 
 /**
  * Created by lxl on 2017/4/10.
  */
 
-public class NewsListFragment extends BaseFragment<NewsPresenter, NewsListModel> implements NewsContract.View,SwipeRefreshLayout.OnRefreshListener{
+public class NewsListFragment extends BaseFragment<NewsListPresenter, NewsListModel> implements NewsListContract.View,SwipeRefreshLayout.OnRefreshListener,NewsListAdapter.OnItemClickListener{
 
 
     @BindView(R.id.recycle_view)
@@ -43,6 +48,8 @@ public class NewsListFragment extends BaseFragment<NewsPresenter, NewsListModel>
     private int page = 1;
 
     private static final String TAG = "NewsListFragment";
+
+    private List<News> newsList;
 
 
     public static NewsListFragment getInstance(int type) {
@@ -91,8 +98,10 @@ public class NewsListFragment extends BaseFragment<NewsPresenter, NewsListModel>
         recycleView.setItemAnimator(new DefaultItemAnimator());
         recycleView.setLayoutManager(mLayoutManager);
         adapter = new NewsListAdapter(getActivity());
+        adapter.setOnItemClickListener(this);
         recycleView.addOnScrollListener(mOnScrollListener);
         recycleView.setAdapter(adapter);
+        newsList = new ArrayList<>();
         onRefresh();
     }
 
@@ -112,12 +121,15 @@ public class NewsListFragment extends BaseFragment<NewsPresenter, NewsListModel>
 
     @Override
     public void returnNewsListData(List<News> newsList) {
+        checkNotNull(newsList);
         if(page==1){
             adapter.setNewsList(newsList);
+            this.newsList = newsList;
             refreshLayout.setRefreshing(false);
 
         }else{
             adapter.addNewsList(newsList);
+            this.newsList.addAll(newsList);
             LoadHelper.getInstance(getActivity()).endLoadMore();
         }
 
@@ -147,4 +159,13 @@ public class NewsListFragment extends BaseFragment<NewsPresenter, NewsListModel>
         page = page + 1;
         mPresenter.getNewsListData(mType,page,ApiConstants.PAGE_SIZE,"0",1);
     }
+
+    @Override
+    public void OnItemClick(View view, int position) {
+        News news = newsList.get(position);
+        Bundle bundle = new Bundle();
+        bundle.putInt("tableNum",mType);
+        bundle.putParcelable("news",news);
+        startActivity(NewsDetailsActivity.class,bundle);
+}
 }
