@@ -1,5 +1,7 @@
 package com.example.news.presenter;
 
+import android.view.View;
+
 import com.example.bean.News;
 import com.example.bean.NewsDetails;
 import com.example.common.base.BaseApplication;
@@ -33,6 +35,7 @@ public class NewsListPresenter extends NewsListContract.Presenter{
             }
         });
     }
+
 
 
 }

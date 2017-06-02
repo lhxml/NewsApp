@@ -3,11 +3,6 @@ apply plugin: 'com.jakewharton.butterknife'
 
 // Java8 not fully supported in library projects yet, https://code.google.com/p/android/issues/detail?id=211386
 // this is a temporary workaround to get at least lambdas compiling
-gradle.projectsEvaluated {
-    tasks.withType(JavaCompile) {
-        options.compilerArgs << "-Xbootclasspath/a:" + System.properties.get("java.home") + "/lib/rt.jar"
-    }
-}
 
 android {
     compileSdkVersion 25
@@ -18,7 +13,6 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -31,7 +25,9 @@ android {
         }
     }
 
+
 }
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')

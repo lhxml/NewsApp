@@ -11,7 +11,7 @@ import com.example.ui.R;
 
 public class DialogUtils {
     private static MaterialDialog dialog;
-    public static void showDialog(Context context,boolean horizontal){
+    public static void showProgressDialog(Context context,boolean horizontal){
         if(dialog==null||!dialog.isShowing()){
             dialog = new MaterialDialog.Builder(context)
                     .content(context.getString(R.string.material_dialog_content))
@@ -22,9 +22,21 @@ public class DialogUtils {
         dialog.show();
     }
 
+    public static void showBasicDialog(Context context,String text){
+        if(dialog==null||!dialog.isShowing()){
+            dialog = new MaterialDialog.Builder(context)
+                    .content(text)
+                    .positiveText(context.getString(R.string.confirm))
+                    .show();
+        }
+    }
     public static void dismissDialog(){
         if(dialog!=null&&dialog.isShowing()){
             dialog.dismiss();
+            dialog = null;
         }
     }
+
+
+
 }

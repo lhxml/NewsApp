@@ -46,7 +46,11 @@ public class RetrofitUtils {
             httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
             builder.addInterceptor(httpLoggingInterceptor).addNetworkInterceptor(new StethoInterceptor());
         }
-        OkHttpClient client = builder.build();
+        OkHttpClient client = builder
+                .connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+                .writeTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+                .readTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS)
+                .build();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)

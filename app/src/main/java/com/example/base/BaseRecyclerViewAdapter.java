@@ -7,9 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.adapter.NewsListAdapter;
-import com.example.bean.News;
-import com.example.common.base.BaseViewHolder;
+import com.example.common.base.*;
+import com.example.common.base.BasePresenter;
+import com.example.common.listener.OnItemClickListener;
+import com.example.common.utils.TUtil;
 import com.example.util.LoadHelper;
 
 import java.util.ArrayList;
@@ -20,13 +21,15 @@ import java.util.List;
  * 带刷新加载的adapter
  */
 
-public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int TYPE_ITEM =0;  //普通Item View
     private static final int TYPE_FOOTER = 1;  //顶部FootView
 
     private Context mContext;
     private List<T> tList;
+
+    protected OnItemClickListener mOnItemClickListener;
 
 
 
@@ -53,6 +56,10 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Re
             this.tList = new ArrayList<>();
         }
         this.notifyDataSetChanged();
+    }
+
+    public List<T> gettList() {
+        return tList;
     }
 
     @Override
@@ -105,5 +112,11 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Re
             super(itemView);
         }
     }
+
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mOnItemClickListener = listener;
+    }
+
 
 }

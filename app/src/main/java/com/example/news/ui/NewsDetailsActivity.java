@@ -1,6 +1,7 @@
 package com.example.news.ui;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.widget.ImageView;
 
@@ -40,17 +41,22 @@ public class NewsDetailsActivity extends BaseActivity<NewsDetailsPresenter, News
 
     @Override
     public void showLoading(String msg) {
-        DialogUtils.showDialog(this, false);
+        DialogUtils.showProgressDialog(this, false);
     }
 
     @Override
     public void hideLoading() {
-        DialogUtils.dismissDialog();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                DialogUtils.dismissDialog();
+            }
+        },2000);
     }
 
     @Override
     public void showErr(String err) {
-
+        DialogUtils.showBasicDialog(this,err);
     }
 
     @Override

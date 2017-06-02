@@ -17,6 +17,10 @@ public class ApiConstants {
     public static final int ENTERTAINMENT = 2;
     public static final int MILITARY = 3;
     public static final int CARS = 4;
+    public static final int FINANCE = 5;
+    public static final int JOKE = 6;
+    public static final int SPORTS = 7;
+    public static final int TECHNOLOGY = 8;
 
     public static final int PAGE_SIZE = 15;
 

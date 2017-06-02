@@ -18,6 +18,8 @@
     <string name="name">Lauren_Liuling</string>
     <string name="press_again_exit_app">再按一次退出程序</string>
     <string name="material_dialog_content">Please wait...</string>
+    <string name="network_error_please_try_again">network error,please try again</string>
+    <string name="confirm">confirm</string>
 
 
 </resources>

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.common.listener.OnItemClickListener;
 import com.example.common.utils.ImageLoaderUtils;
 
 /**
@@ -17,7 +18,6 @@ import com.example.common.utils.ImageLoaderUtils;
 public class BaseViewHolder extends RecyclerView.ViewHolder{
     private final SparseArray<View> mViews = new SparseArray<>();
 
-    public OnItemClickListener mOnItemClickListener;
 
     View itemView;
 
@@ -26,9 +26,14 @@ public class BaseViewHolder extends RecyclerView.ViewHolder{
         this.itemView = itemView;
     }
 
-    public <T extends View> void setOnClickListener(int id){
+    public <T extends View> void setOnClickListener(int id, final OnItemClickListener listener){
         T view = get(id);
-        view.setOnClickListener(l->mOnItemClickListener.OnItemClick(l,this.getLayoutPosition()));
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.OnItemClick(view,BaseViewHolder.this.getLayoutPosition());
+            }
+        });
     }
 
     public <T extends View> T get(int id){
@@ -44,13 +49,7 @@ public class BaseViewHolder extends RecyclerView.ViewHolder{
         return view;
     }
 
-    public interface OnItemClickListener{
-        public void OnItemClick(View view,int position);
-    }
 
-    public void setOnItemClickListener(OnItemClickListener listener){
-        mOnItemClickListener = listener;
-    }
 
 
     public BaseViewHolder setText(int viewId,String text){

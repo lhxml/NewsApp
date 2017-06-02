@@ -32,6 +32,7 @@ public class NewsDetailsPresenter extends NewsDetailsContract.Presenter{
 
             @Override
             protected void _onError(String message) {
+                mView.hideLoading();
                 mView.showErr(message);
             }
         });

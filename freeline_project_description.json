@@ -1,0 +1,138 @@
+{
+    "android_gradle_plugin_version": "2.2.0",
+    "apk_path": "D:\\project\\android\\github\\private\\NewsApp\\app\\build\\outputs\\apk\\app-flavors_release-debug.apk",
+    "auto_dependency": true,
+    "build_cache_dir": "D:\\project\\android\\github\\private\\NewsApp\\app\\build\\freeline",
+    "build_directory": "D:\\project\\android\\github\\private\\NewsApp\\app\\build",
+    "build_script": "gradlew.bat :app:assembleDebug",
+    "build_script_work_directory": "",
+    "build_tools_directory": "D:\\tools\\android-sdk-windows\\build-tools\\25.0.0",
+    "build_tools_version": "25.0.0",
+    "check_sources_md5": [
+        
+    ],
+    "compile_sdk_directory": "D:\\tools\\android-sdk-windows\\platforms\\android-25",
+    "compile_sdk_version": "android-25",
+    "databinding": [
+        
+    ],
+    "databinding_modules": [
+        
+    ],
+    "debug_package": "com.littlejie.multichannel.release",
+    "exclude_dep_res_paths": [
+        
+    ],
+    "extra_dep_res_paths": [
+        
+    ],
+    "freeline_cache_dir": "D:\\project\\android\\github\\private\\NewsApp",
+    "freeline_gradle_plugin_version": "0.8.7",
+    "ignore_resource_ids": [
+        "avd_hide_password_1",
+        "avd_hide_password_2",
+        "avd_hide_password_3",
+        "avd_show_password_1",
+        "avd_show_password_2",
+        "avd_show_password_3"
+    ],
+    "java_home": "D:\\java\\jdk",
+    "launcher": "com.example.main.widget.MainActivity",
+    "main_assets_directory": [
+        "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\debug\\assets",
+        "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\main\\assets"
+    ],
+    "main_jniLibs_directory": [
+        "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\debug\\jniLibs",
+        "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\main\\jniLibs"
+    ],
+    "main_jni_directory": [
+        "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\debug\\jni",
+        "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\main\\jni"
+    ],
+    "main_manifest_path": "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\main\\AndroidManifest.xml",
+    "main_project_dir": "app",
+    "main_project_name": "app",
+    "main_r_path": "D:\\project\\android\\github\\private\\NewsApp\\app\\build\\generated\\source\\r\\debug\\R.java",
+    "main_res_directory": [
+        "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\debug\\res",
+        "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\main\\res"
+    ],
+    "main_src_directory": [
+        "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\debug\\java",
+        "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\main\\java"
+    ],
+    "module_dependencies": {
+        "app": [
+            "common"
+        ],
+        "common": [
+            
+        ]
+    },
+    "modules": [
+        {
+            "name": "app",
+            "path": "D:\\project\\android\\github\\private\\NewsApp\\app"
+        },
+        {
+            "name": "common",
+            "path": "D:\\project\\android\\github\\private\\NewsApp\\common"
+        }
+    ],
+    "package": "com.example.ui",
+    "product_flavor": "",
+    "project_source_sets": {
+        "app": {
+            "main_assets_directory": [
+                "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\debug\\assets",
+                "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\main\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\debug\\jniLibs",
+                "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\main\\jniLibs"
+            ],
+            "main_jni_directory": [
+                "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\debug\\jni",
+                "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\main\\jni"
+            ],
+            "main_manifest_path": "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\debug\\res",
+                "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\debug\\java",
+                "D:\\project\\android\\github\\private\\NewsApp\\app\\src\\main\\java"
+            ]
+        },
+        "common": {
+            "main_assets_directory": [
+                "D:\\project\\android\\github\\private\\NewsApp\\common\\src\\release\\assets",
+                "D:\\project\\android\\github\\private\\NewsApp\\common\\src\\main\\assets"
+            ],
+            "main_jniLibs_directory": [
+                "D:\\project\\android\\github\\private\\NewsApp\\common\\src\\release\\jniLibs",
+                "D:\\project\\android\\github\\private\\NewsApp\\common\\src\\main\\jniLibs"
+            ],
+            "main_jni_directory": [
+                "D:\\project\\android\\github\\private\\NewsApp\\common\\src\\release\\jni",
+                "D:\\project\\android\\github\\private\\NewsApp\\common\\src\\main\\jni"
+            ],
+            "main_manifest_path": "D:\\project\\android\\github\\private\\NewsApp\\common\\src\\main\\AndroidManifest.xml",
+            "main_res_directory": [
+                "D:\\project\\android\\github\\private\\NewsApp\\common\\src\\release\\res",
+                "D:\\project\\android\\github\\private\\NewsApp\\common\\src\\main\\res"
+            ],
+            "main_src_directory": [
+                "D:\\project\\android\\github\\private\\NewsApp\\common\\src\\release\\java",
+                "D:\\project\\android\\github\\private\\NewsApp\\common\\src\\main\\java"
+            ]
+        }
+    },
+    "project_type": "gradle",
+    "root_dir": "D:\\project\\android\\github\\private\\NewsApp",
+    "sdk_directory": "D:\\tools\\android-sdk-windows",
+    "use_jdk8": true,
+    "use_system_gradle": false
+}

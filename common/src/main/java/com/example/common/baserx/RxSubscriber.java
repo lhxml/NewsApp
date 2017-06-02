@@ -8,7 +8,11 @@ import com.example.common.base.BaseApplication;
 import com.example.common.utils.NetWorkUtils;
 import com.example.common.widget.LoadingDialog;
 
+import java.net.SocketTimeoutException;
+
 import rx.Subscriber;
+
+import static com.google.gson.internal.$Gson$Preconditions.checkNotNull;
 
 /**
  * Created by lxl on 2017/3/13.
@@ -64,6 +68,12 @@ public abstract class RxSubscriber<T> extends Subscriber<T>{
         if (showDialog)
             LoadingDialog.cancelDialogForLoading();
         e.printStackTrace();
+        System.out.println("RxSubscriber=="+e.getMessage());
+        checkNotNull(e);
+        if(e.getMessage().equals(BaseApplication.getAppContext().getString(R.string.connect_timed_out))||e instanceof SocketTimeoutException){
+            _onError(BaseApplication.getAppContext().getString(R.string.no_net));
+            return;
+        }
         //网络
         if (!NetWorkUtils.isNetConnected(BaseApplication.getAppContext())) {
             _onError(BaseApplication.getAppContext().getString(R.string.no_net));

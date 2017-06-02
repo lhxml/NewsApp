@@ -1,9 +1,12 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.antfortune.freeline'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
-
+    freeline {
+        hack true
+    }
 
     defaultConfig {
         applicationId "com.example.rxjavademo"
@@ -73,6 +76,7 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
     compile "org.sufficientlysecure:html-textview:$rootProject.htmlTextViewVersion"
     compile "com.afollestad.material-dialogs:core:$rootProject.materialDialogVersion"
+    compile "com.antfortune.freeline:runtime:$rootProject.freelineVersion"
 
 
 }

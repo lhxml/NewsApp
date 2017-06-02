@@ -40,6 +40,7 @@ public abstract class BaseFragment<T extends BasePresenter,E extends BaseModel> 
 
         mPresenter.attachViewAndModel(this,mModel);
         initView();
+
         return rootView;
     }
 

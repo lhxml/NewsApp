@@ -69,6 +69,10 @@ public class NewsFragment extends BaseFragment<NewsPresenter, NewsModel> impleme
         adapter.addFragment(NewsListFragment.getInstance(ApiConstants.ENTERTAINMENT),getString(R.string.newslist_entertainment));
         adapter.addFragment(NewsListFragment.getInstance(ApiConstants.MILITARY),getString(R.string.newslist_military));
         adapter.addFragment(NewsListFragment.getInstance(ApiConstants.CARS),getString(R.string.newslist_cars));
+        adapter.addFragment(NewsListFragment.getInstance(ApiConstants.FINANCE),getString(R.string.newslist_finance));
+        adapter.addFragment(NewsListFragment.getInstance(ApiConstants.JOKE),getString(R.string.newslist_joke));
+        adapter.addFragment(NewsListFragment.getInstance(ApiConstants.SPORTS),getString(R.string.newslist_sports));
+        adapter.addFragment(NewsListFragment.getInstance(ApiConstants.TECHNOLOGY),getString(R.string.newslist_technology));
         viewpager.setAdapter(adapter);
     }
 
@@ -77,6 +81,10 @@ public class NewsFragment extends BaseFragment<NewsPresenter, NewsModel> impleme
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newslist_entertainment)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newslist_cars)));
         tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newslist_military)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newslist_finance)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newslist_joke)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newslist_sports)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.newslist_technology)));
         tabLayout.setupWithViewPager(viewpager);
     }
 
